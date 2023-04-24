@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  :root {
+    background-color: #FDF0E5;
+    --marron:#9F4743;
+    --testimonyColor:#2A2A3A;
+    --beige: #EECFB4;
+    --rougeMarron:#C75146;
+    --noir:#2A2A3A;
+    --beigeClair: #FDF0E5;
+    max-width: 100%;
+  }
+
+

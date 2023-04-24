@@ -1,0 +1,105 @@
+
+.imageHome{
+
+    width: 80%;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+p{
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+
+}
+
+.Parlez h1,.titleMokeup{
+
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.DLMStudio{
+
+    margin-top: 5rem;
+}
+
+  .DLMStudio div p {
+    margin-top: 2rem;
+    
+  }
+  .DLMStudio div button:first-of-type {
+    box-shadow: 0px 32px 24px -3px rgba(0, 0, 0, 0.1);
+    background-color: var(--rougeMarron);
+  }
+  .DLMStudio div button {
+    border-radius: 5px;
+    width: 30%;
+    height: 3rem;
+    margin: 1rem;
+    box-shadow: 0px 32px 24px -3px rgba(0, 0, 0, 0.1);
+  
+  }
+
+
+.Parlez button{ 
+    box-shadow: 0px 13px 24px -3px rgba(0, 0, 0, 0.329);
+    border-radius: 5px;
+    margin: 1rem;
+    margin-top: 3rem;
+    width: 10rem;
+    height: 3rem;
+  }
+
+  .GetStarted{
+    border:none;
+    background-color: var(--rougeMarron);
+  }
+  
+
+  .Mokeup {
+   
+    background-color: var(--beige);
+    margin-top: 5rem;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  /* .Mokeup p {
+    width: 75%;
+  } */
+  .Mokeup .Mobile {
+    background-color: var(--rougeMarron);
+  
+  }
+  
+  .Mokeup button {
+    box-shadow: 0px 32px 24px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 1rem;
+    margin-top: 3rem;
+    width: 10rem;
+    height: 3rem;
+  }
+  
+  .Mokeup .Desktop{
+
+
+    background-color: gray;
+  }
+
+  button.TryNow{
+    background-color: var(--beige);
+  }
+  
+
+@media screen and (min-width:900px) {
+
+    .imageHome{
+
+        margin: auto;
+        margin-top: 0rem;
+    }
+    
+}
