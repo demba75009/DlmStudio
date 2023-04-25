@@ -1,0 +1,28 @@
+.footer{
+
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #EECFB4;
+}
+
+.footer img{
+
+padding: 1rem;
+    width: 10rem;
+}
+
+.footer + div,.social{
+
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo{
+
+    width: 5rem;
+}
+

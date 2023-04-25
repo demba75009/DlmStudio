@@ -1,4 +1,3 @@
-import TheHeader from "./TheHeader/TheHeader";
 import HomeImage from "../assets/home/home-image.jpg"
 import Style from "./Home.module.css"
 import Temoignages from "./Temoignage/Temoignages";
@@ -8,7 +7,6 @@ function Home () {
 
         <>
 
-       <TheHeader />
 
         <section className={`${Style.DLMStudio}
          lg:flex sm:text-center`}>
