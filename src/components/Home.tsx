@@ -38,6 +38,7 @@ function Home () {
 
         </section>
 
+        <h1 className={Style.Temoignages}> Témoignages :</h1>
         <Temoignages />
 
         <article className={` lg:flex sm:text-center ${Style.Mokeup}`}>
