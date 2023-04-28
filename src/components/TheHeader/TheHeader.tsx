@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+
 import {
   Navbar,
   MobileNav,
   Typography,
-  Button,
   IconButton,
 } from "@material-tailwind/react";
  
@@ -19,31 +20,33 @@ export default function Example() {
   }, []);
  
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="mb-4 mt-2 flex flex-col text-black gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
+        
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <NavLink to="/" onClick={() => setOpenNav(!openNav)}
+ className="flex items-center">
           Home
-        </a>
+        </NavLink>
       </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
+        
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <NavLink to="/fiche-produit" onClick={() => setOpenNav(!openNav)}
+ className="flex items-center">
           Fiche Produit
-        </a>
+        </NavLink>
       </Typography>
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
+        
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
@@ -69,7 +72,7 @@ export default function Example() {
       
         <IconButton
           variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className="ml-auto h-6 w-6 text-black hover:bg-transparent  focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
