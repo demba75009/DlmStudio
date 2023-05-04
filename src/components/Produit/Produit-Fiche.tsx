@@ -1,7 +1,12 @@
  import Style from "./Produit-Fiche.module.css";
 import Guitare from "../../assets/fiche-produit/guitar-g409efefcc_1920.jpg"
-
+import Guitare2 from "../../assets/fiche-produit/imageGuitare2.jpg"
 import GuitareProduit from "../../assets/fiche-produit/face.png";
+
+import Produit1 from "../../assets/fiche-produit/produit.png"
+import Produit2 from "../../assets/fiche-produit/produit2.png"
+import Produit3 from "../../assets/fiche-produit/produit3.png"
+import Produit4 from "../../assets/fiche-produit/produit4.png"
 
  export default function ProduitFiche () {
 
@@ -69,6 +74,25 @@ import GuitareProduit from "../../assets/fiche-produit/face.png";
         </section>
 
 
+        <section className={`${Style.banniere2} lg:flex my-20`}>
+            <div>
+
+             <h1 className={`${Style.Titre2} my-20 `}> L'excellence <br></br> en qualité sonore </h1>
+
+            </div>
+
+            <div className="Image w-1/3"><img src={Guitare2} alt={Guitare2} /></div>
+        </section>
+
+        <h2 className={Style.Titre2}> Un Design Epuré... </h2>
+
+        <section className=" my-20 grid grid-cols-2">
+            <img  className="Image " src={Produit1} alt="" />
+            <img  className="Image ms-2" src={Produit2} alt="" />
+            <img className="Image  my-2"  src={Produit3} alt="" />
+            <img  className="Image ms-2 my-2" src={Produit4} alt="" />
+            
+        </section>
         
         </>
 
