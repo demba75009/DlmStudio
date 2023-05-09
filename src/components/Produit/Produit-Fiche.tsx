@@ -7,9 +7,14 @@ import Produit1 from "../../assets/fiche-produit/produit.png"
 import Produit2 from "../../assets/fiche-produit/produit2.png"
 import Produit3 from "../../assets/fiche-produit/produit3.png"
 import Produit4 from "../../assets/fiche-produit/produit4.png"
+import { useState } from "react";
+
+
+
 
  export default function ProduitFiche () {
 
+    const [Testimony,setTestimony] = useState([{name:"Patrick",contenu:"magnifique très bon produit"},{name:"Arthur", contenu:"Parfait rien a redire"}])
 
     return(
 
@@ -86,14 +91,48 @@ import Produit4 from "../../assets/fiche-produit/produit4.png"
 
         <h2 className={Style.Titre2}> Un Design Epuré... </h2>
 
-        <section className=" my-20 grid grid-cols-2">
-            <img  className="Image " src={Produit1} alt="" />
-            <img  className="Image ms-2" src={Produit2} alt="" />
-            <img className="Image  my-2"  src={Produit3} alt="" />
-            <img  className="Image ms-2 my-2" src={Produit4} alt="" />
-            
-        </section>
-        
+        <div className="grid grid-cols-2 gap-4 my-20">
+            <div className={`${Style.Image} relative`}>
+                <img src={Produit1} alt="image" className={` w-full h-full object-cover`}/>
+                <div className={`${Style.calque} sm:hidden absolute inset-0 flex flex-col items-center justify-center text-white`}>
+                    <h1 className="text-3xl font-bold">Manche en Acajou</h1>
+                </div>
+            </div>
+            <div className={`${Style.Image} relative`}>
+                <img src={Produit2}alt="image" className={` w-full h-full object-cover`}/>
+                <div className={`${Style.calque} sm:hidden absolute inset-0 flex flex-col items-center justify-center text-white`}>
+                    <h1 className="text-3xl font-bold">Table en épicéa massif sélectionné</h1>
+                </div>
+            </div>
+            <div className={`${Style.Image} relative`}>
+                <img src={Produit3}alt="image" className={` w-full h-full object-cover`}/>
+                <div className={`${Style.calque} sm:hidden absolute inset-0 flex flex-col items-center justify-center text-white`}>
+                    <h1 className="text-3xl font-bold">Coffre en Palissandre</h1>
+                </div>
+            </div>
+            <div className={`${Style.Image} relative`}>
+                <img src={Produit4}alt="image" className={` w-full h-full object-cover`}/>
+                <div className={`${Style.calque} sm:hidden absolute inset-0 flex flex-col items-center justify-center text-white`}>
+                    <h1 className="text-3xl font-bold">Des cordes adaptés</h1>
+                </div>
+            </div>
+        </div>
+
+        <h1 className="my-20"> Ils ont validé l'experience iCord</h1>
+
+        {Testimony.map(t=>{
+
+                return(
+                <div className="bg-current ms-40 w-1/2 py-4 my-10 rounded border-r border-b border-l ">
+
+                    <div className=" font-bold text-white text-xl mb-2"><h1 className="me-2"> {t.name} </h1> </div>
+                    <p className="text-white text-base">{t.contenu} </p>
+
+                </div>
+                )
+
+        })}
+
         </>
 
 

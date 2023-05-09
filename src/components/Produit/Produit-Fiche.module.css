@@ -19,6 +19,31 @@
     
 }
 
+.calque {
+    background-color: rgba(0, 0, 0, 0.67); /* couleur de fond semi-transparente */
+    color: white;
+    text-align: center;
+    align-items: center;
+
+  }
+  .calque h1{
+
+    margin-top: 25%;
+
+}
+
+.Image{   
+    cursor: pointer;
+}
+
+
+
+.Image:hover  .calque{
+
+    display: block;
+}
+
+
 
 .buttonPreCommander,.buttonDecouvrir,.Started{
 
