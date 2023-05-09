@@ -14,7 +14,7 @@ import { useState } from "react";
 
  export default function ProduitFiche () {
 
-    const [Testimony,setTestimony] = useState([{name:"Patrick",contenu:"magnifique très bon produit"},{name:"Arthur", contenu:"Parfait rien a redire"}])
+    const [Testimony,setTestimony] = useState([{name:"Patrick",contenu:"magnifique très bon produit"},{name:"Arthur", contenu:"Parfait rien a redire"},{name:"Benoit", contenu:"Je recommande a 100%"}])
 
     return(
 
@@ -118,20 +118,25 @@ import { useState } from "react";
             </div>
         </div>
 
-        <h1 className="my-20"> Ils ont validé l'experience iCord</h1>
+        <h1 className={`my-20 ${Style.Titre}`}> Ils ont validé l'experience iCord</h1>
+
+        <div className="flex"> 
+
 
         {Testimony.map(t=>{
 
                 return(
-                <div className="bg-current ms-40 w-1/2 py-4 my-10 rounded border-r border-b border-l ">
+                <div className=" bg-current ms-2 w-1/2 py-4 justify-center">
 
                     <div className=" font-bold text-white text-xl mb-2"><h1 className="me-2"> {t.name} </h1> </div>
                     <p className="text-white text-base">{t.contenu} </p>
-
-                </div>
+                    </div>
                 )
 
         })}
+        </div>
+
+        <button className={Style.buttonPreCommander}>Get started</button>
 
         </>
 

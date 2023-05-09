@@ -19,6 +19,7 @@
     
 }
 
+
 .calque {
     background-color: rgba(0, 0, 0, 0.67); /* couleur de fond semi-transparente */
     color: white;
@@ -184,3 +185,4 @@
     top:6px;
     right:5px;
 }
+

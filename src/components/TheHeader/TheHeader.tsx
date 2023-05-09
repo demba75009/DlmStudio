@@ -49,9 +49,20 @@ export default function Example() {
         
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          DataViz
-        </a>
+        <NavLink to="/connexion" className="flex items-center">
+          Connexion
+        </NavLink>
+      </Typography>
+
+      <Typography
+        as="li"
+        variant="small"
+        
+        className="p-1 font-normal"
+      >
+        <NavLink to="/inscription" className="flex items-center">
+          inscription
+        </NavLink>
       </Typography>
     
     </ul>
@@ -60,14 +71,12 @@ export default function Example() {
   return (
     <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-12 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-dark-900">
-        <Typography
-          as="a"
-          href="#"
-          variant="big"
+        <NavLink
+          to="/"
           className="mr-4 cursor-pointer py-1.5 font-normal"
         >
           <img className={Style.logo} src="/public/logo.png"/>
-        </Typography>
+        </NavLink>
         <div className="hidden lg:block">{navList}</div>
       
         <IconButton
