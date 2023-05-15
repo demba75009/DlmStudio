@@ -1,5 +1,6 @@
 import Style from "./Inscription.module.css";
-import { useState } from 'react'
+import { useState } from 'react';
+import fetch from "isomorphic-fetch";
 
 export default function Inscription(){
 
@@ -12,12 +13,16 @@ export default function Inscription(){
  
     const submitSignup = (event:FocusEvent) =>{
 
+        event.preventDefault()
         const user = {
 
             Username,
             Email,
             Password
         }
+
+        console.log(user);
+        
 
         if (user.Email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) ) {
         
@@ -29,7 +34,13 @@ export default function Inscription(){
           setErrorPassword("") 
 
 
-          fetch("localhost:3000").then(res=>console.log(res)
+          fetch("http://localhost:3000/users-add", { method: 'POST',   
+          headers: {
+           'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(user)
+       }).then(res=>console.log(res.json())
+          ).then(data=>console.log(data)
           )
 
         }
@@ -46,18 +57,18 @@ export default function Inscription(){
         <>
        <div className={`${Style.formu} w-full text-center  max-w-xs`}>
         <h1 className="my-20">Inscrivez - vous ! </h1>
-        <form  className={` bg-white shadow-md rounded px-8 pt-6 my-10 pb-8 mb-4`}>
+        <form onSubmit={submitSignup} className={` bg-white shadow-md rounded px-8 pt-6 my-10 pb-8 mb-4`}>
             <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                 Username
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" onKeyUp={(e)=>setUsername(e.currentTarget.value)} placeholder="Username"/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" onKeyUp={(e)=>setUsername(e.currentTarget.value)} name="Username"  placeholder="Username"/>
             </div>
             <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                 Email
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" onKeyUp={(e)=>setEmail(e.currentTarget.value)} placeholder="email"/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="Email" onKeyUp={(e)=>setEmail(e.currentTarget.value)}  placeholder="email"/>
 
             <p className="text-red-500">{ErrorEmail}</p>
             </div>
@@ -65,12 +76,14 @@ export default function Inscription(){
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                 Password
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" onKeyUp={(e)=>setPassword(e.currentTarget.value)} placeholder="******************"/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" onKeyUp={(e)=>setPassword(e.currentTarget.value)} name="Password" placeholder="******************"/>
+
+
             <p className="text-red-500">{ErrorPassword}</p>
 
             </div>
             <div className="flex items-center justify-between">
-            <button onClick={submitSignup} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Sign Up
             </button>
          

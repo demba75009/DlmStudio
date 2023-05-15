@@ -8,5 +8,11 @@ router.get('/', (req, res) => {
   
   new UserController().get(req,res)
 });
+router.post('/users-add', (req, res) => {
+  // Your code here
+
+  
+  new UserController().post(req,res)
+});
 
 export default router;
