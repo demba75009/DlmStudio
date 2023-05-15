@@ -28,6 +28,10 @@ export default function Inscription(){
          else  
           setErrorPassword("") 
 
+
+          fetch("localhost:3000").then(res=>console.log(res)
+          )
+
         }
 
         else{

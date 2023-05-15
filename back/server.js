@@ -6,7 +6,7 @@ import mongoose from './database/index.js';
 const app = express();
 
 mongoose
-app.use('/', usersRouter);
+app.use(usersRouter);
 
 app.listen(3000, () => {
   console.log('Server is listening on port 3000');
