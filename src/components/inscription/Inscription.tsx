@@ -1,8 +1,10 @@
 import Style from "./Inscription.module.css";
 import { useState } from 'react';
 import fetch from "isomorphic-fetch";
+import { useNavigate } from 'react-router-dom';
 
 export default function Inscription(){
+
 
     const [Username, setUsername] = useState('')
     const [Email, setEmail] = useState('')
@@ -10,8 +12,10 @@ export default function Inscription(){
     const [ErrorEmail, setErrorEmail] = useState('')
     const [ErrorPassword, setErrorPassword] = useState('')
 
+    const history = useNavigate(); // Utilisé pour naviguer vers une autre route
+
  
-    const submitSignup = (event:FocusEvent) =>{
+    const submitSignup  = async (event:FocusEvent) =>{
 
         event.preventDefault()
         const user = {
@@ -21,7 +25,6 @@ export default function Inscription(){
             Password
         }
 
-        console.log(user);
         
 
         if (user.Email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) ) {
@@ -32,16 +35,26 @@ export default function Inscription(){
           setErrorPassword("Le mot de passe doit faire au moins 8 carractère !")
          else  
           setErrorPassword("") 
+          try {
 
 
-          fetch("http://localhost:3000/users-add", { method: 'POST',   
+          const response = await  fetch("http://localhost:3000/users-add", { method: 'POST',   
           headers: {
            'Content-Type': 'application/json'
          },
          body: JSON.stringify(user)
-       }).then(res=>console.log(res.json())
-          ).then(data=>console.log(data)
-          )
+       })
+
+       const responseData = await response.json();
+       console.log(responseData);
+       history('/');
+
+     } catch (error) {
+       console.log(error);
+     }
+ 
+
+
 
         }
 
@@ -58,12 +71,15 @@ export default function Inscription(){
        <div className={`${Style.formu} w-full text-center  max-w-xs`}>
         <h1 className="my-20">Inscrivez - vous ! </h1>
         <form onSubmit={submitSignup} className={` bg-white shadow-md rounded px-8 pt-6 my-10 pb-8 mb-4`}>
+
+
             <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                 Username
             </label>
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" onKeyUp={(e)=>setUsername(e.currentTarget.value)} name="Username"  placeholder="Username"/>
             </div>
+
             <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                 Email
@@ -72,6 +88,8 @@ export default function Inscription(){
 
             <p className="text-red-500">{ErrorEmail}</p>
             </div>
+
+
             <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                 Password

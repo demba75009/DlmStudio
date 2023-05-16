@@ -17,16 +17,14 @@ import User from "../model/User.model.js";
 
         const user = req.body
 
-        console.log(user);
 
        const users =  new User(user)
-
-       
-       console.log(users);
-
        users.save()
 
+       console.log(users);
+     return  res.json( users)
 
+       
     }
 
 }

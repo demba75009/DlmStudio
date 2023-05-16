@@ -14,7 +14,10 @@
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.17.3",
     "mongoose": "^7.1.1",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "req-flash": "^0.0.3"
   }
 }
