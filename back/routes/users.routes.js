@@ -15,4 +15,12 @@ router.post('/users-add', (req, res) => {
   new UserController().post(req,res)
 });
 
+
+router.post("/connexion",(req,res)=>{
+
+  new UserController().Login(req,res)
+
+
+})
+
 export default router;

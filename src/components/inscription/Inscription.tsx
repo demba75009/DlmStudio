@@ -11,6 +11,7 @@ export default function Inscription(){
     const [Password, setPassword] = useState('')
     const [ErrorEmail, setErrorEmail] = useState('')
     const [ErrorPassword, setErrorPassword] = useState('')
+    const [ErrorIncorrect, setErrorIncorrect] = useState('')
 
     const history = useNavigate(); // Utilisé pour naviguer vers une autre route
 
@@ -38,21 +39,32 @@ export default function Inscription(){
           try {
 
 
-          const response = await  fetch("http://localhost:3000/users-add", { method: 'POST',   
-          headers: {
-           'Content-Type': 'application/json'
-         },
-         body: JSON.stringify(user)
-       })
+                const response = await  fetch("http://localhost:3000/users-add", { method: 'POST',   
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
 
-       const responseData = await response.json();
-       console.log(responseData);
-       history('/');
+            const responseData = await response.json();
+            console.log(responseData);
+            
+            if(responseData !== "errorEmail" && responseData !== "errorPseudo" )
+            history('/');
+            else 
+            throw Error
 
-     } catch (error) {
-       console.log(error);
-     }
- 
+        } catch (error) {
+
+
+
+            if(error === "errorEmail")
+            
+             setErrorIncorrect("l'email existe déja veuillez en entre un autre")
+            else 
+             setErrorIncorrect("le Username existe déja veuillez en entre un autre")
+        
+    }
 
 
 
@@ -69,7 +81,10 @@ export default function Inscription(){
 
         <>
        <div className={`${Style.formu} w-full text-center  max-w-xs`}>
+        
         <h1 className="my-20">Inscrivez - vous ! </h1>
+        <p className=" my-10 text-red-500">{ErrorIncorrect}</p>
+       
         <form onSubmit={submitSignup} className={` bg-white shadow-md rounded px-8 pt-6 my-10 pb-8 mb-4`}>
 
 

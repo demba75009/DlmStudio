@@ -17,12 +17,53 @@ import User from "../model/User.model.js";
 
         const user = req.body
 
+        const userAuth = await User.findOne({Email:user.Email}).exec()
 
+        if(userAuth){
+          return res.json("errorEmail")
+
+        }
+
+        const userAuthPseudo = await User.findOne({Username:user.Username}).exec()
+
+        if(userAuthPseudo){
+          return res.json("errorPseudo")
+
+        }
        const users =  new User(user)
        users.save()
 
        console.log(users);
      return  res.json( users)
+
+       
+    }
+   async Login(req,res) {
+
+        const user = req.body
+
+        const userAuth = await User.findOne({Email:user.Email}).exec()
+        
+        if(userAuth)
+        {
+          
+            if(`'${userAuth.Password}'` === user.Password)
+
+             return res.json(userAuth)
+            
+            else 
+             return res.json("error")
+        
+        }
+        else
+         return res.json("error")
+
+
+    //    const users =  new User(user)
+    //    users.save()
+
+    //    console.log(users);
+    //  return  res.json( users)
 
        
     }
