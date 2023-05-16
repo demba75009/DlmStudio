@@ -1,6 +1,7 @@
 
 import User from "../model/User.model.js";
 
+import jwt from "jsonwebtoken"
  class UserController{
 
 
@@ -44,12 +45,19 @@ import User from "../model/User.model.js";
 
         const userAuth = await User.findOne({Email:user.Email}).exec()
         
+        console.log(userAuth);
         if(userAuth)
         {
           
-            if(`'${userAuth.Password}'` === user.Password)
+            if(`${userAuth.Password}` === user.Password)
+            {
 
-             return res.json(userAuth)
+              const token = jwt.sign({ userAuth }, 'rjhrfejkfjezfoijflkzefklfeze4554');
+
+            return res.json({userAuth,token})
+
+            }
+
             
             else 
              return res.json("error")

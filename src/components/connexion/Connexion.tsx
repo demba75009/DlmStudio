@@ -46,7 +46,12 @@ export default function Connexion(){
        })
 
        const responseData = await response.json();
-       console.log(responseData);
+       const token = responseData.token;
+
+       localStorage.setItem('token', token);
+
+
+
        if(responseData !== "error")
         history('/');
        else 

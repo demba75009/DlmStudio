@@ -9,7 +9,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProduitFiche from './components/Produit/Produit-Fiche';
 
 function App() {
+  const getToken =  localStorage.getItem('token');
 
+  
+ 
   return (
     <>
    <Router>

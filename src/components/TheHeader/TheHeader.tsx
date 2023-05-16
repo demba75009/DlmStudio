@@ -12,6 +12,14 @@ import Style from "./TheHeader.module.css"
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
  
+
+
+  const getToken =  localStorage.getItem('token');
+
+  
+  
+
+
   useEffect(() => {
     window.addEventListener(
       "resize",
@@ -43,27 +51,47 @@ export default function Example() {
           Fiche Produit
         </NavLink>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        
-        className="p-1 font-normal"
-      >
-        <NavLink to="/connexion" className="flex items-center">
-          Connexion
-        </NavLink>
-      </Typography>
+      {getToken ? (
 
-      <Typography
+        <Typography
         as="li"
         variant="small"
-        
+
         className="p-1 font-normal"
-      >
-        <NavLink to="/inscription" className="flex items-center">
-          inscription
+        >
+
+        <NavLink onClick={()=>localStorage.removeItem('token')} to="/connexion" className="flex items-center">
+          Deconnexion
         </NavLink>
-      </Typography>
+        </Typography> 
+          ): (
+            <>
+            <Typography
+            as="li"
+            variant="small"
+            
+            className="p-1 font-normal"
+          >
+           
+            <NavLink to="/connexion" className="flex items-center">
+              Connexion
+            </NavLink>
+          </Typography>
+    
+          <Typography
+            as="li"
+            variant="small"
+            
+            className="p-1 font-normal"
+          >
+            <NavLink to="/inscription" className="flex items-center">
+              inscription
+            </NavLink>
+          </Typography>
+          </>
+          )
+          }
+     
     
     </ul>
   );
