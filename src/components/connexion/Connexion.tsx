@@ -46,9 +46,14 @@ export default function Connexion(){
        })
 
        const responseData = await response.json();
+
+       const user25 = JSON.stringify(responseData.userAuth)
+       console.log(user25);
+       
        const token = responseData.token;
 
        localStorage.setItem('token', token);
+       localStorage.setItem('user', user25);
 
 
 

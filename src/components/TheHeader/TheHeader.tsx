@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { NavLink } from "react-router-dom";
+
+import Avatar from "../../assets/Avatar/avatar.png"
 
 import {
   Navbar,
@@ -9,18 +11,37 @@ import {
 } from "@material-tailwind/react";
  
 import Style from "./TheHeader.module.css"
-export default function Example() {
+
+import { useNavigate } from "react-router-dom";
+
+import {ProfilContext} from "../../context/ProfilContext"
+
+export default function TheHeader() {
   const [openNav, setOpenNav] = useState(false);
  
+  const [user, setUser] = useState({Username:"",Email:""})
+
+  const navigate = useNavigate()
 
 
-  const getToken =  localStorage.getItem('token');
+  function profile(){
+
+    setOpenNav(!openNav)
+    navigate("/profil")
+
+
+  }
 
   
-  
+
+
+
+  const user2 = useContext(ProfilContext)
+
 
 
   useEffect(() => {
+    setUser( user2 )
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -51,8 +72,17 @@ export default function Example() {
           Fiche Produit
         </NavLink>
       </Typography>
-      {getToken ? (
+      {user ? (
 
+        <>
+
+        <div onClick={profile}  className={`${Style.Avatar} flex flex-col`}>
+          
+          <img className="w-12" src={Avatar} alt={Avatar} />
+          <h1>{user.Username} </h1>
+
+        
+        </div>
         <Typography
         as="li"
         variant="small"
@@ -60,10 +90,14 @@ export default function Example() {
         className="p-1 font-normal"
         >
 
-        <NavLink onClick={()=>localStorage.removeItem('token')} to="/connexion" className="flex items-center">
+        <NavLink onClick={()=>{localStorage.removeItem('token')
+      localStorage.removeItem('user')
+      
+      }} to="/connexion" className="flex items-center">
           Deconnexion
         </NavLink>
         </Typography> 
+        </>
           ): (
             <>
             <Typography

@@ -7,9 +7,9 @@ import Inscription from "./components/inscription/Inscription.tsx"
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProduitFiche from './components/Produit/Produit-Fiche';
+import Profil from './components/profil/Profil.tsx';
 
 function App() {
-  const getToken =  localStorage.getItem('token');
 
   
  
@@ -20,13 +20,14 @@ function App() {
         <TheHeader />
 
         <Routes>
-  <Route  path="/" element={<Home />} />
-  <Route  path="/connexion" element={<Connexion />} />
-  <Route  path="/inscription" element={<Inscription />} />
-  <Route  path="/fiche-produit" element={<ProduitFiche />} />
+          <Route  path="/" element={<Home />} />
+          <Route  path="/connexion" element={<Connexion />} />
+          <Route  path="/inscription" element={<Inscription />} />
+          <Route  path="/fiche-produit" element={<ProduitFiche />} />
+          <Route  path="/profil" element={<Profil />} />
    
 
-  </Routes>
+        </Routes>
 
 
         <Footer/>
