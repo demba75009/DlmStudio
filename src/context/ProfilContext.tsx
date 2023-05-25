@@ -1,7 +1,8 @@
 import {createContext}  from "react"
 
 const UserJson = localStorage.getItem("user");
-const User = JSON.parse(UserJson);
+console.log(UserJson);
 
 
-export const  ProfilContext = createContext(User)
+
+export const  ProfilContext = createContext(UserJson)

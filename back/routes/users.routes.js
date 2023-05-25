@@ -8,8 +8,9 @@ router.get('/', (req, res) => {
   
   new UserController().get(req,res)
 });
-router.post('/users-add', (req, res) => {
+router.post('/add', (req, res) => {
   // Your code here
+  console.log("ok");
 
   
   new UserController().post(req,res)

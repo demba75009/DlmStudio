@@ -1,5 +1,6 @@
 import express from 'express';
 import usersRouter from './routes/users.routes.js';
+import productsRouter from './routes/products.routes.js';
 import bodyParser from 'body-parser';
 import flash from "req-flash";
 import mongoose from './database/index.js';
@@ -24,6 +25,7 @@ app.use(session({
 
 app.use(flash());
 app.use(usersRouter);
+app.use(productsRouter);
 
 
 
