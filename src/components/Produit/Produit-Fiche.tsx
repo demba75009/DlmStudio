@@ -17,18 +17,31 @@
 
         <>
 
+        <h1 className="text-center my-20">Liste Produit</h1>
+
+        <section className=" text-white p-4 bg-yellow-700 flex justify-between items-center">
+
+          <h2> Une recherche : </h2>
+
+          <input className="h-1/2 w-1/2" type="text" placeholder="Recherchez" />
+
+
+          <button className={Style.buttonPreCommander}>Recherchez</button>
+        </section>
+
+        <div className="my-20 lg:flex">
 
       {Produits.map(p=>(
 
-                <div className="my-20">
                 <ProductsItem 
                 key={p._id}
                 ProductList={p}
 
                 />
-                </div>
       ))}
-     
+        
+        </div>
+
      
         </>
 

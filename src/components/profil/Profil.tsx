@@ -7,9 +7,12 @@ import Avatar from "../../assets/Avatar/avatar.png"
 export default function Profil (){
 
     const user2 = useContext(ProfilContext)
+    
     const [user, setUser] = useState(user2)
 
 
+
+    
 
 
 

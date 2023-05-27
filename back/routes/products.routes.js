@@ -8,7 +8,7 @@ router.get('/products', (req, res) => {
   
   new ProductController().get(req,res)
 });
-router.post('/Products-add', (req, res) => {
+router.post('/products/add', (req, res) => {
   // Your code here
 
   
