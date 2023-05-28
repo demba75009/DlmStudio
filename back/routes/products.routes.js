@@ -8,6 +8,14 @@ router.get('/products', (req, res) => {
   
   new ProductController().get(req,res)
 });
+
+router.get('/products/:value', (req, res) => {
+  // Your code here
+
+    new ProductController().getSearch(req,res)
+
+  
+});
 router.post('/products/add', (req, res) => {
   // Your code here
 

@@ -27,6 +27,15 @@ import Product from "../model/Product.model.js";
 
     }
 
+    async getSearch(req,res){
+
+      const Products = await Product.find({"Nom":{$regex: req.params.value}}).exec()
+
+      console.log(Products);
+
+      return res.json(Products)
+
+    }
       
 
 }
