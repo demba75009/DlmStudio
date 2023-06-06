@@ -1,21 +1,35 @@
  import Style from "./Produit-Fiche.module.css";
 
  import { ProductsContext } from "../../context/ProductsContext";
- import { useState, useEffect,useContext } from "react";
+ import { useState, useEffect,useContext,useReducer } from "react";
  import ProductsItem from "./ProductsItem";
+ import ProductReducer from "../../reduceurs/Products.reduceur";
 
- 
+ import { useNavigate } from 'react-router-dom';
+
 
 
  export default function ProduitFiche () {
+   
+  //  const [state, dispatch] = useReducer(ProductReducer, {Produits});
 
+  const history = useNavigate()
     const Produits  = useContext(ProductsContext)
 
     const [Value, setValue] = useState("")
 
     const [Resultat, setResultat] = useState([])
-
+ 
     
+
+    function Detail(id){
+
+
+      history(`/Produit/${id}`)
+
+
+    }
+
     async function Search(){
 
         
@@ -38,7 +52,7 @@
 
     return(
 
-        <>
+        <> 
 
         <h1 className="text-center my-20">Liste Produit</h1>
 
@@ -64,7 +78,7 @@
               </>
             ))
             ):""}
-
+ 
           </div>
 
           <button className={`${Style.buttonPreCommander} text-white`}>Recherchez</button>
@@ -77,6 +91,7 @@
                 <ProductsItem 
                 key={p._id}
                 ProductList={p}
+                ProductDetailAction={()=>Detail(p._id)}
 
                 />
       ))}

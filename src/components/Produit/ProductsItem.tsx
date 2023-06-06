@@ -1,10 +1,10 @@
 import Style from "./ProducItem.module.css"
 
-export default function ProductsItem({ProductList}) {
+export default function ProductsItem({ProductList,ProductDetailAction}) {
     
     return(
     
-        <div className={`${Style.item} text-center   ms-2 my-5  bg-slate-700`}>
+        <div onClick={ProductDetailAction} className={`${Style.item} text-center   ms-2 my-5  bg-slate-700`}>
         <img className={` ${Style.img}  w-max h-1/2 object-center`} src={ProductList.Image[0]} alt={ProductList.Image[0]}/>
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{ProductList.Nom}</div>
@@ -18,4 +18,4 @@ export default function ProductsItem({ProductList}) {
       </div>
     )
     
-    }
+    } 
