@@ -8,6 +8,9 @@ export default function AddProduct (){
     const [Nom, setNom] = useState("")
     const [Prix1, setPrix] = useState("")
     const [Image1, setImage] = useState("")
+    const [Image2, setImage2] = useState("")
+    const [Image3, setImage3] = useState("")
+    const [Image4, setImage4] = useState("")
     const [Description, setDescription] = useState("")
     const [Stock1, setStock] = useState("")
 
@@ -17,7 +20,7 @@ export default function AddProduct (){
 
         const Prix= parseFloat(Prix1)
         const Stock= parseFloat(Stock1)
-        const Image = [Image1]
+        const Image = [Image1,Image2,Image3,Image4]
         
         const Produit = {
 
@@ -80,15 +83,46 @@ export default function AddProduct (){
             </div>
 
 
-            <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Image">
                 Image
             </label>
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="Image" type="text" onKeyUp={(e)=>{setImage(e.currentTarget.value); 
-            }} name="Image" placeholder="******************"/>
+
+            }} name="Image" placeholder="Https//"/>
+
+            <div className="mb-6">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Image2">
+                    Image2
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="Image2" type="text" onKeyUp={(e)=>{setImage2(e.currentTarget.value); 
+                }} name="Image2" placeholder="Https//"/>
 
 
-            {/* <p className="text-red-500">{ErrorImage}</p> */}
+                {/* <p className="text-red-500">{ErrorImage}</p> */}
+
+            </div>
+
+            <div className="mb-6">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Image3">
+                    Image3
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="Image3" type="text" onKeyUp={(e)=>{setImage3(e.currentTarget.value); 
+                }} name="Image3" placeholder="Https//"/>
+
+
+                {/* <p className="text-red-500">{ErrorImage}</p> */}
+
+            </div>
+
+            <div className="mb-6">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Image3">
+                    Image4
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="Image4" type="text" onKeyUp={(e)=>{setImage4(e.currentTarget.value); 
+                }} name="Image4" placeholder="Https//"/>
+
+
+                {/* <p className="text-red-500">{ErrorImage}</p> */}
 
             </div>
 

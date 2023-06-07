@@ -11,6 +11,22 @@
 
 }
 
+.imgGrille{
+
+
+    display: flex;
+    margin-top: 4rem;
+
+}
+.imgGrille img{
+
+
+    width: 5rem;
+   cursor: pointer; 
+   border: 1px solid black;
+   margin: 0.5rem;
+
+}
 
 
 @media screen and(min-width:800px) {

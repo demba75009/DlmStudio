@@ -12,7 +12,7 @@ export default function Footer (){
 
         <>
 
-        <ul className={Style.footer}>
+        <ul className={`${Style.footer}`}>
             <li><img src={image1} alt="" /></li>
             <li><img src={image2} alt="" /></li>
             <li><img src={image3} alt="" /></li>
