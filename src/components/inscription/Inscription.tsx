@@ -39,7 +39,7 @@ export default function Inscription(){
           try {
 
 
-                const response = await  fetch("http://localhost:3000/users/add", { method: 'POST',   
+                const response = await  fetch("http://localhost:3000/add", { method: 'POST',   
                 headers: {
                 'Content-Type': 'application/json'
                 },
@@ -57,6 +57,8 @@ export default function Inscription(){
         } catch (error) {
 
 
+            console.log(error);
+            
 
             if(error === "errorEmail")
             

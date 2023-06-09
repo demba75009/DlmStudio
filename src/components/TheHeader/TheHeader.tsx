@@ -15,9 +15,14 @@ import Style from "./TheHeader.module.css"
 import { useNavigate } from "react-router-dom";
 
 import {ProfilContext} from "../../context/ProfilContext"
+import { CartContext } from "../../context/CartContext";
 
 export default function TheHeader() {
   const [openNav, setOpenNav] = useState(false);
+
+  const cart = useContext(CartContext)
+  
+  
  
   const [user, setUser] = useState({Username:"",Email:""})
 
@@ -56,7 +61,7 @@ export default function TheHeader() {
         
         className="p-1 font-normal"
       >
-        <NavLink to="/" onClick={() => setOpenNav(!openNav)}
+        <NavLink to="/" onClick={() => setOpenNav(false)}
  className="flex items-center">
           Home
         </NavLink>
@@ -67,11 +72,41 @@ export default function TheHeader() {
         
         className="p-1 font-normal"
       >
-        <NavLink to="/fiche-produit" onClick={() => setOpenNav(!openNav)}
+        <NavLink to="/fiche-produit" onClick={() => setOpenNav(false)}
  className="flex items-center">
           Fiche Produit
         </NavLink>
       </Typography>
+
+
+<Typography>
+  <NavLink onClick={() => setOpenNav(false)} to="/cart">
+      <div className="relative w-6 h-6">
+      <span className="absolute top-0 left-0 w-full h-full">
+        {/* Ajoutez ici votre icône de panier, par exemple : */}
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M9 21H5a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-4m-9-7v-8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8" />
+          <circle cx="10" cy="18" r="1" />
+          <circle cx="18" cy="18" r="1" />
+        </svg>
+      </span>
+      {cart && cart.length > 0 && (
+        <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-white text-xs">
+          { cart.length}
+        </span>
+      )}
+    </div>
+    </NavLink>
+    </Typography>
       {user ? (
 
         <>

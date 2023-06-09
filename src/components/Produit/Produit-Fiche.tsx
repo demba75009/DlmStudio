@@ -30,6 +30,25 @@
 
     }
 
+    function AddCart(id){
+
+
+
+        const ProdCart = Produits.find(p=>p._id === id)  
+
+        const cart = JSON.parse(localStorage.getItem('user'));
+        cart.Cart.push(ProdCart)
+
+        localStorage.setItem("user",JSON.stringify(cart))  
+
+        const g = localStorage.getItem("user")
+
+        console.log(g);
+        
+
+    }
+
+
     async function Search(){
 
         
@@ -92,6 +111,7 @@
                 key={p._id}
                 ProductList={p}
                 ProductDetailAction={()=>Detail(p._id)}
+                AjouterCart={()=>AddCart(p._id)}
 
                 />
       ))}

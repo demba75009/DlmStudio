@@ -10,6 +10,7 @@ import ProduitFiche from './components/Produit/Produit-Fiche';
 import Profil from './components/profil/Profil.tsx';
 import AddProduct from './components/AddProduct/AddProduct.tsx';
 import ProduitDetail from './components/ProductDetail/ProductDetail.tsx';
+import CartList from './components/Cart/Cart.tsx';
 function App() {
 
   
@@ -27,6 +28,7 @@ function App() {
           <Route  path="/inscription" element={<Inscription />} />
           <Route  path="/fiche-produit" element={<ProduitFiche />} />
           <Route  path="/profil" element={<Profil />} />
+          <Route  path="/cart" element={<CartList />} />
           <Route  path="/produit/:id" element={<ProduitDetail />} />
 
    

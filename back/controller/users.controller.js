@@ -17,6 +17,7 @@ import jwt from "jsonwebtoken"
    async post(req,res) {
 
         const user = req.body
+        user.Cart = []
 
         const userAuth = await User.findOne({Email:user.Email}).exec()
 
