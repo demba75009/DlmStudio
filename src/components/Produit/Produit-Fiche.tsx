@@ -1,26 +1,27 @@
  import Style from "./Produit-Fiche.module.css";
 
  import { ProductsContext } from "../../context/ProductsContext";
- import { useState, useEffect,useContext,useReducer } from "react";
+ import { useState, useEffect,useContext,useRef } from "react";
  import ProductsItem from "./ProductsItem";
  import ProductReducer from "../../reduceurs/Products.reduceur";
 
  import { useNavigate } from 'react-router-dom';
 
-
-
+ 
+ 
  export default function ProduitFiche () {
    
-  //  const [state, dispatch] = useReducer(ProductReducer, {Produits});
-
-  const history = useNavigate()
-    const Produits  = useContext(ProductsContext)
-
-    const [Value, setValue] = useState("")
-
-    const [Resultat, setResultat] = useState([])
- 
-    
+   //  const [state, dispatch] = useReducer(ProductReducer, {Produits});
+   
+   const history = useNavigate()
+   const Produits  = useContext(ProductsContext)
+   
+   const [Value, setValue] = useState("")
+   
+   const [Resultat, setResultat] = useState([])
+   
+   const TimeoutId = useRef(null);
+     
 
     function Detail(id){
 
@@ -49,22 +50,34 @@
     }
 
 
-    async function Search(){
+     function Search(){
+
 
         
-
         const result = Value.charAt(0).toUpperCase() + Value.slice(1)
-
-        console.log(result);
         
 
-        const ProductRequest = await  fetch(`http://localhost:3000/products/${result}`,{method:"GET"})
+        if(result !== "")
+        {
+        clearTimeout(TimeoutId.current)
+
+        TimeoutId.current = setTimeout(async () => {
+        
+          const ProductRequest = await  fetch(`http://localhost:3000/products/${result}`,{method:"GET"})
   
-        const prod = await ProductRequest.json()
-        
-        
-        setResultat(prod)
-        
+          const prod = await ProductRequest.json()
+               
+          setResultat(prod)
+          
+       
+       
+        }, 500);
+
+      }
+
+      else
+      setResultat([])
+     
       
 
     }

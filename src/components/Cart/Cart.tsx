@@ -7,7 +7,6 @@ export default function CartList () {
 
     const [Cart, setCart] = useState(cart)
 
-    console.log(Cart);
     
 
     return(
@@ -17,13 +16,25 @@ export default function CartList () {
 
           Cart.length > 0 ? (Cart.map(c=>(
 
-                <div className="my-20 flex justify-evenly items-center">
-                
-                <img className="w-1/5" src={c.Image[0]} />
-                <h1> {c.Nom} </h1>
-                <h2 className="text-red-500"> {c.Prix} $ </h2>
-                
-                </div>
+              
+            
+                <table className="my-40" >
+                        <tr>
+                            <th scope="row">img</th>
+                            <th scope="row">Name</th>
+                            <th>Prix</th>
+                            <th>quantity</th>
+                        </tr>
+                    
+   
+                    <tr >
+
+                        <td ><img className="w-12" src={c.Image[0]} /></td>
+                        <td >{c.Nom}</td>
+                        <td >{c.Prix} $</td>
+                        <td >{c.Stock}</td>
+                    </tr>
+                </table>    
             )) 
 
           ) : <h1 className="my-20 text-center"> Votre Panier est vide </h1>
