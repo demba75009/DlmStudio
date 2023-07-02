@@ -7,6 +7,9 @@ let Cart
 if(CartObjet !== null)
  Cart = CartObjet.Cart 
 
+else
+ Cart === null
+
 
 
 

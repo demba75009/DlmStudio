@@ -3,7 +3,7 @@
  import { ProductsContext } from "../../context/ProductsContext";
  import { useState, useEffect,useContext,useRef } from "react";
  import ProductsItem from "./ProductsItem";
- import ProductReducer from "../../reduceurs/Products.reduceur";
+ import {ProfilContext} from "../../context/ProfilContext"
 
  import { useNavigate } from 'react-router-dom';
 
@@ -42,10 +42,6 @@
 
         localStorage.setItem("user",JSON.stringify(cart))  
 
-        const g = localStorage.getItem("user")
-
-        console.log(g);
-        
 
     }
 

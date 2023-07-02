@@ -3,9 +3,9 @@ import { useState, useEffect,useContext,useReducer } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export default function CartList () {
-    const cart = useContext(CartContext)
+    const cart = useContext(CartContext || null)
 
-    const [Cart, setCart] = useState(cart)
+    const [Cart, setCart] = useState(cart || [])
 
     
 
@@ -13,10 +13,14 @@ export default function CartList () {
 
 
         
+        <>
+        
+            <h1 className="my-20"> Votre Panier :  </h1>
 
-          Cart.length > 0 ? (Cart.map(c=>(
+         { Cart.length > 0 ? (Cart.map(c=>(
 
               
+
             
                 <table className="my-40" >
                         <tr>
@@ -37,8 +41,10 @@ export default function CartList () {
                 </table>    
             )) 
 
+
           ) : <h1 className="my-20 text-center"> Votre Panier est vide </h1>
-        
+         }
+            </>
 
     )
 
