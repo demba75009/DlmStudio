@@ -35,9 +35,12 @@
 
 
 
-        const ProdCart = Produits.find(p=>p._id === id)  
+        const ProdCart = Produits.find(p=>p._id === id) 
+        
 
         const cart = JSON.parse(localStorage.getItem('user'));
+        ProdCart.idCart = cart.Cart.length + 1 
+
         cart.Cart.push(ProdCart)
 
         localStorage.setItem("user",JSON.stringify(cart))  

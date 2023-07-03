@@ -1,11 +1,22 @@
 import {createContext}  from "react"
 
 const UserCartJson = localStorage.getItem("user");
-const CartObjet =  JSON.parse(UserCartJson);
+ let CartObjet
+
+ console.log(UserCartJson);
+ 
+
+if(UserCartJson !== "undefined")
+ CartObjet =  JSON.parse(UserCartJson) ;
+
+ else
+  CartObjet = []
+
+
 
 let Cart
-if(CartObjet !== null)
- Cart = CartObjet.Cart 
+if(CartObjet !== "undefined")
+ Cart = CartObjet.Cart || []
 
 else
  Cart === null
