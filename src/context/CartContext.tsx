@@ -6,7 +6,7 @@ const UserCartJson = localStorage.getItem("user");
  console.log(UserCartJson);
  
 
-if(UserCartJson !== "undefined")
+if(UserCartJson !== null)
  CartObjet =  JSON.parse(UserCartJson) ;
 
  else

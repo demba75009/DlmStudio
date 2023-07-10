@@ -1,12 +1,8 @@
 
 import { useState, useEffect,useContext,useReducer } from "react";
 import { CartContext } from "../../context/CartContext";
-import { useNavigate } from "react-router-dom";
 
-export default function CartList () {
-
-    const navigate = useNavigate()
-
+export default function Commande () {
     let cart = useContext(CartContext || null)
 
     const [Cart, setCart] = useState(cart || [])
@@ -16,7 +12,8 @@ export default function CartList () {
 
     function Commandez(){
 
-navigate("/commande")        
+        console.log("ok");
+        
     }
 
 
@@ -47,7 +44,7 @@ navigate("/commande")
         
         <>
         
-            <h1 className="my-20"> Votre Panier :  </h1>
+            <h1 className="my-20"> Votre Commande :  </h1>
             { Cart.length > 0 ? (
                 <>
             <table className="my-40 container mx-auto border-separate border-collapse border border-current	-400" >
@@ -79,7 +76,7 @@ navigate("/commande")
 
             )) }
             </table>  
-                <button onClick={Commandez}  className="GetStarted mr-4">Commandez</button>
+                <button onClick={Commandez}  className="GetStarted mr-4">Passez au Mode de livraison</button>
             </>  
 
           ) : <h1 className="my-20 text-center"> Votre Panier est vide </h1>
