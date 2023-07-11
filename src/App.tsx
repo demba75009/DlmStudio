@@ -12,6 +12,8 @@ import AddProduct from './components/AddProduct/AddProduct.tsx';
 import ProduitDetail from './components/ProductDetail/ProductDetail.tsx';
 import CartList from './components/Cart/Cart.tsx';
 import Commande from './components/Commande/Commande.tsx';
+import { loadStripe } from '@stripe/stripe-js';
+
 function App() {
 
   

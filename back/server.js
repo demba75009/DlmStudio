@@ -13,6 +13,7 @@ import { stripeSecretKey } from './config/config.js';
 
 const stripeInstance = stripe(stripeSecretKey);
 
+console.log(stripeInstance);
 
 mongoose
 
