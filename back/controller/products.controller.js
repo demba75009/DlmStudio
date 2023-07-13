@@ -1,7 +1,11 @@
 
 import Product from "../model/Product.model.js";
 
- class ProductController{
+
+import stripe from 'stripe';
+import { stripeSecretKey } from '../config/config.js';
+
+class ProductController{
 
 
    async get(req,res) {
@@ -34,6 +38,18 @@ import Product from "../model/Product.model.js";
       console.log(Products);
 
       return res.json(Products)
+
+    }
+
+    async paiement(req,res){
+
+      console.log(stripeSecretKey);
+
+
+      return res.json(stripeSecretKey)
+
+
+
 
     }
       

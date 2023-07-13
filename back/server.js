@@ -8,12 +8,7 @@ import session from 'express-session';
 const app = express();
 app.use(bodyParser.json());
 
-import stripe from 'stripe';
-import { stripeSecretKey } from './config/config.js';
 
-const stripeInstance = stripe(stripeSecretKey);
-
-console.log(stripeInstance);
 
 mongoose
 

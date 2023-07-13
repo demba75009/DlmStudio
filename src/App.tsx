@@ -13,6 +13,7 @@ import ProduitDetail from './components/ProductDetail/ProductDetail.tsx';
 import CartList from './components/Cart/Cart.tsx';
 import Commande from './components/Commande/Commande.tsx';
 import { loadStripe } from '@stripe/stripe-js';
+import Paiement from './components/paiement/Paiment.tsx';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route  path="/profil" element={<Profil />} />
           <Route  path="/cart" element={<CartList />} />
           <Route  path="/commande" element={<Commande />} />
+          <Route  path="/paiement" element={<Paiement />} />
           <Route  path="/produit/:id" element={<ProduitDetail />} />
 
    

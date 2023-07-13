@@ -23,6 +23,13 @@ router.post('/products/add', (req, res) => {
   new ProductController().post(req,res)
 });
 
+router.post('/products/paiement', (req, res) => {
+  // Your code here
+
+  
+  new ProductController().paiement(req,res)
+});
+
 
 
 
